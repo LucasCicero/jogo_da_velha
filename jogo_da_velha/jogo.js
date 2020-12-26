@@ -1,4 +1,5 @@
 var rodada = 1;
+var empate=0;
 var matriz_jogo = Array(3);
 
 matriz_jogo['a'] = Array(3);
@@ -36,7 +37,7 @@ $(document).ready( function(){
 		$('#nome_jogador_1').html($('#campoNomeJogador1').val());
 		$('#nome_jogador_2').html($('#campoNomeJogador2').val());
 
-		//contrala visualização das divs
+		//controla visualização das divs
 		$('#pagina_inicial').hide();
 		$('#palco_jogo').show();
 
@@ -69,6 +70,12 @@ $(document).ready( function(){
 		matriz_jogo[linha_coluna[0]][linha_coluna[1]] = ponto;
 	
 		verifica_combinacao();
+		empate++;
+		
+		//Se ja foram 9 jogadas e não há vencedor então o jogo da empate
+		if (empate==9){
+			empateJogo(empate)
+		}
 
 	}
 
@@ -111,6 +118,8 @@ $(document).ready( function(){
 		pontos = 0;
 		pontos = matriz_jogo['a'][3] + matriz_jogo['b'][2] + matriz_jogo['c'][1];
 		ganhador(pontos);
+		
+		
 
 	}
 
@@ -119,13 +128,21 @@ $(document).ready( function(){
 			var jogada_1 = $('#campoNomeJogador1').val();
 			alert(jogada_1 + ' é o vencedor');
 			$('.jogada').off();
+			empate=0;
 		
 		} else if(pontos == 3){
 			var jogada_2 = $('#campoNomeJogador2').val();
 			alert(jogada_2 + ' é o vencedor');
 			$('.jogada').off();
+			empate=0;
 		}
 	}
+	
+	//verifica se o jogo deu empate
+	function empateJogo(empate){	
+		alert('Deu empate');
+			$('.jogada').off();
+		}
 
 
 });
