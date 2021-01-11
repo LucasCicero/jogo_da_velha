@@ -1,9 +1,0 @@
-package com.api.produto.modelo;
-
-public class ProdutoModelo {
-	
-	private int codigo;
-	private String nome;
-	private double valor;
-
-}

@@ -1,7 +1,0 @@
-package com.api.produto.repositorio;
-
-import org.springframework.data.repository.CrudRepository;
-
-public interface ProdutoRepositorio extends CrudRepository<ProdutoModelo,Integer> {
-
-}
