@@ -1,4 +1,4 @@
-# jogo_da_velha
+# Jogo_da_velha
 Jogo da velha simples feito em html e jQuery.
 
 # Iniciar Jogo
